@@ -1,6 +1,6 @@
 # Simple
 
-Simple work with [httprouter](https://github.com/julienschmidt/httprouter). This project fork router from [Hunsin/router](https://gist.github.com/Hunsin/26b2021757e831554d4f59a52a5c9152) and add more feature
+Simple work with [httprouter](https://github.com/julienschmidt/httprouter). This project fork group router from [Hunsin/router](https://gist.github.com/Hunsin/26b2021757e831554d4f59a52a5c9152) and add more feature
 
 ## How to use
 
