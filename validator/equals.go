@@ -1,15 +1,12 @@
 package validator
 
-func (v *validator) MustBeLessThan(value string, max int, errorMessage string) bool {
+// Equals If Not Equal, then show error message
+func (v *validator) Equals(value, match, errorMessage string) bool {
 	if _, ok := v.Errors["error"]; ok {
 		return false
 	}
 
-	if value == "" {
-		return true
-	}
-
-	if len(value) > max {
+	if value != match {
 		v.Errors["error"] = errMessage{message: errorMessage}.Error()
 		return false
 	}

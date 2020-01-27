@@ -6,7 +6,8 @@ import (
 
 var emailRegexp = regexp.MustCompile("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$")
 
-func (v *validator) MustBeValidEmail(email, errorMessage string) bool {
+// IsEmail If Not valid email, then show error message
+func (v *validator) IsEmail(email, errorMessage string) bool {
 	if _, ok := v.Errors["error"]; ok {
 		return false
 	}

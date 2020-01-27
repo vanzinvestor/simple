@@ -27,7 +27,7 @@ func (v *validator) IsValid() bool {
 	return len(v.Errors) == 0
 }
 
-// ValidatePayload validate payload
+// ValidatePayload validate payload pass middleware
 func ValidatePayload(next httprouter.Handle, payload PayloadValidation) httprouter.Handle {
 	return func(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 		err := json.NewDecoder(r.Body).Decode(&payload)

@@ -1,15 +1,12 @@
 package validator
 
-func (v *validator) MustBeLongerThan(value string, min int, errorMessage string) bool {
+// IsNotEmpty If empty, then show error message
+func (v *validator) IsNotEmpty(value, errorMessage string) bool {
 	if _, ok := v.Errors["error"]; ok {
 		return false
 	}
 
 	if value == "" {
-		return true
-	}
-
-	if len(value) < min {
 		v.Errors["error"] = errMessage{message: errorMessage}.Error()
 		return false
 	}
