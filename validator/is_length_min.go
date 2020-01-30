@@ -1,16 +1,16 @@
 package validator
 
-// IsMax If value more than maximum, then show error message
-func (v *validator) IsMax(value string, max int, errorMessage string) bool {
+// IsLengthMin If value less than minimum, then return json error
+func (v *validator) IsLengthMin(str string, min int, errorMessage string) bool {
 	if _, ok := v.Errors["error"]; ok {
 		return false
 	}
 
-	if value == "" {
+	if str == "" {
 		return true
 	}
 
-	if len(value) > max {
+	if len(str) < min {
 		v.Errors["error"] = errMessage{message: errorMessage}.Error()
 		return false
 	}

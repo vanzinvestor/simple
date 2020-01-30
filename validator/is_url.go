@@ -2,13 +2,13 @@ package validator
 
 import "net/url"
 
-// IsURL If Not Url, then show error message
-func (v *validator) IsURL(value, errorMessage string) bool {
+// IsURL If Not Url, then return json error
+func (v *validator) IsURL(str, errorMessage string) bool {
 	if _, ok := v.Errors["error"]; ok {
 		return false
 	}
 
-	u, err := url.Parse(value)
+	u, err := url.Parse(str)
 
 	isURL := err == nil && u.Scheme != "" && u.Host != ""
 

@@ -4,13 +4,13 @@ import (
 	"github.com/asaskevich/govalidator"
 )
 
-// IsEmail If Not valid email, then return json error
-func (v *validator) IsEmail(email, errorMessage string) bool {
+// HasLowerCase If has Not lowercase, then return json error
+func (v *validator) HasLowerCase(str, errorMessage string) bool {
 	if _, ok := v.Errors["error"]; ok {
 		return false
 	}
 
-	if !govalidator.IsEmail(email) {
+	if !govalidator.HasLowerCase(str) {
 		v.Errors["error"] = errMessage{message: errorMessage}.Error()
 		return false
 	}

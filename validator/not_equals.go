@@ -1,12 +1,12 @@
 package validator
 
-// NotEquals If Equal to, then show error message
-func (v *validator) NotEquals(value, match, errorMessage string) bool {
+// NotEquals If Equal to, then return json error
+func (v *validator) NotEquals(str1, str2, errorMessage string) bool {
 	if _, ok := v.Errors["error"]; ok {
 		return false
 	}
 
-	if value == match {
+	if str1 == str2 {
 		v.Errors["error"] = errMessage{message: errorMessage}.Error()
 		return false
 	}
